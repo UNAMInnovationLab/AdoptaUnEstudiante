@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "484852111462",
+    "firebase_url": "https://adoptaunestudiante-434cc.firebaseio.com",
+    "project_id": "adoptaunestudiante-434cc",
+    "storage_bucket": "adoptaunestudiante-434cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484852111462:android:ddf52c4f060c6696",
+        "android_client_info": {
+          "package_name": "com.lab.innovation.unam.adoptaunestudiante"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484852111462-gdj0ne7ocak0aorm83g0885sem2oqac0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk11lCpVj6ysQQ-wenUFT6X89Zt-bJq1Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
