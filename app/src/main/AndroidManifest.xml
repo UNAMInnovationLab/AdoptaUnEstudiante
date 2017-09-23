@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Views.SplashScreenActivity"
+            android:name=".Views.Activities.SplashScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +19,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Views.InformationAppActivity"
+            android:name=".Views.Activities.InformationAppActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Views.MainActivity"></activity>
+        <activity android:name=".Views.Activities.MainActivity" />
+        <activity android:name=".Views.Activities.SignUpActivity"></activity>
     </application>
 
 </manifest>

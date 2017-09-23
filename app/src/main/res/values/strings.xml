@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Adopta un Estudiante</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="crear_cuenta">Crear Cuenta</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="password_seis_caracteres">Contraseña (Al menos 6 caracteres)</string>
 </resources>
