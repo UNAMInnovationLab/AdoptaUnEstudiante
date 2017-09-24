@@ -38,7 +38,7 @@ public class InformationAppActivity extends AppCompatActivity
 
     @Override
     public void navigateToLogInActivity() {
-        //startActivity(new Intent(this, LogInActivity.class));
+        startActivity(new Intent(this, LogInActivity.class));
     }
 
     @Override

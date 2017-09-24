@@ -46,14 +46,14 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void catchDatabaseError(int error) {
-        if (error == interactor.SOME_ERROR)
-            view.showError("Ocurrió un error al intentar crear tu cuenta");
-        else if (error == interactor.INVALID_EMAIL_ERROR)
+        if (error == interactor.INVALID_EMAIL_ERROR)
             view.showInputError(view.EMAIL, "Correo electrónico inválido");
         else if (error == interactor.EMAIL_COLLISION_ERROR)
             view.showInputError(view.EMAIL, "Éste correo ya ha sido registrado anteriormente");
         else if(error == interactor.CONNECTION_ERROR)
             view.showError("No hay conexión a internet");
+        else
+            view.showError("Ocurrió un error al intentar crear tu cuenta");
 
         view.hideProgressBar();
     }

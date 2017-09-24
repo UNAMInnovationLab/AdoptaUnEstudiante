@@ -6,6 +6,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
+import com.google.firebase.auth.FirebaseAuthException.*;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,24 +40,24 @@ public class SignUpInteractorImpl implements SignUpInteractor {
                             presenter.signUpSuccefully(email);
                         }
                     });
-                }else
+                }else {
                     if (!Util.isNetworkConnectionAvailable()) {
                         presenter.catchDatabaseError(CONNECTION_ERROR);
                         return;
                     }
-
-                    try{
+                    try {
                         throw task.getException();
-                    }catch(FirebaseAuthInvalidCredentialsException e) {
+                    } catch (FirebaseAuthInvalidCredentialsException e) {
                         // Correo inválido
                         presenter.catchDatabaseError(INVALID_EMAIL_ERROR);
-                    } catch(FirebaseAuthUserCollisionException e) {
+                    } catch (FirebaseAuthUserCollisionException e) {
                         // Correo ya ingresado
                         presenter.catchDatabaseError(EMAIL_COLLISION_ERROR);
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         // Cualquier otro error
                         presenter.catchDatabaseError(SOME_ERROR);
                     }
+                }
             }
         });
     }
