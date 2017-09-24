@@ -10,7 +10,6 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     private SignUpView view;
     private SignUpInteractor interactor;
-    private final int SOME_ERROR=-1, INVALID_EMAIL_ERROR=0, EMAIL_COLLISION_ERROR=1, CONNECTION_ERROR=2;
 
     public SignUpPresenterImpl(SignUpView view){
         this.view = view;
@@ -19,14 +18,17 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void verifyValidity(String email, String password, String confirmPassword) {
-        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
-            view.showError("Favor de introducir todos los campos");
-        else if (password.contains(" "))
-            view.showError("Tu contraseña no puede tener espacios en blanco");
+        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            int error = email.isEmpty()?
+                    view.EMAIL:
+                    password.isEmpty()? view.PASSWORD: view.CONFIRM_PASSWORD;
+            view.showInputError(error, "Favor de introducir todos los campos");
+        } else if (password.contains(" "))
+            view.showInputError(view.PASSWORD, "Tu contraseña no puede tener espacios en blanco");
         else if (password.length() < 6)
-            view.showError("Tu contraseña debe tener al menos 6 caracteres");
+            view.showInputError(view.PASSWORD, "Tu contraseña debe tener al menos 6 caracteres");
         else if (!password.equals(confirmPassword))
-            view.showError("Las contraseñas no coinciden");
+            view.showInputError(view.CONFIRM_PASSWORD, "Las contraseñas no coinciden");
         else{
             view.showProgressBar();
             interactor.signUpWithEmailAndPassword(email, password);
@@ -44,20 +46,15 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void catchDatabaseError(int error) {
-        switch (error){
-            case SOME_ERROR:
-                view.showError("Ocurrió un error al intentar crear tu cuenta");
-                break;
-            case INVALID_EMAIL_ERROR:
-                view.showError("Correo electrónico inválido");
-                break;
-            case EMAIL_COLLISION_ERROR:
-                view.showError("Éste correo ya ha sido registrado anteriormente");
-                break;
-            case CONNECTION_ERROR:
-                view.showError("No hay conexión a internet");
-                break;
-        }
+        if (error == interactor.SOME_ERROR)
+            view.showError("Ocurrió un error al intentar crear tu cuenta");
+        else if (error == interactor.INVALID_EMAIL_ERROR)
+            view.showInputError(view.EMAIL, "Correo electrónico inválido");
+        else if (error == interactor.EMAIL_COLLISION_ERROR)
+            view.showInputError(view.EMAIL, "Éste correo ya ha sido registrado anteriormente");
+        else if(error == interactor.CONNECTION_ERROR)
+            view.showError("No hay conexión a internet");
+
         view.hideProgressBar();
     }
 

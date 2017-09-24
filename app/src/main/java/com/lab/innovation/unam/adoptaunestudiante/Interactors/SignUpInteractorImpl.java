@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.SignUpInteractor;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.SignUpPresenter;
 import com.lab.innovation.unam.adoptaunestudiante.Model.User;
+import com.lab.innovation.unam.adoptaunestudiante.Model.Util;
 
 public class SignUpInteractorImpl implements SignUpInteractor {
 
@@ -38,6 +39,11 @@ public class SignUpInteractorImpl implements SignUpInteractor {
                         }
                     });
                 }else
+                    if (!Util.isNetworkConnectionAvailable()) {
+                        presenter.catchDatabaseError(CONNECTION_ERROR);
+                        return;
+                    }
+
                     try{
                         throw task.getException();
                     }catch(FirebaseAuthInvalidCredentialsException e) {

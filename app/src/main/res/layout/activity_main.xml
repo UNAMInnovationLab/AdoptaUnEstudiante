@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.lab.innovation.unam.adoptaunestudiante.Views.Activities.MainActivity">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cerrar_sesion"/>
+
 </android.support.constraint.ConstraintLayout>
