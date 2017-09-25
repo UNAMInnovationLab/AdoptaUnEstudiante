@@ -70,7 +70,8 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
         } else if (editText == PASSWORD_ERROR){
             etPassword.setError(msj);
             etPassword.requestFocus();
-        }
+        } else
+            showError(msj);
     }
 
     @Override
