@@ -21,4 +21,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, InformationAppActivity.class));
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 }

@@ -9,10 +9,6 @@ import android.view.View;
 import com.lab.innovation.unam.adoptaunestudiante.R;
 import com.lab.innovation.unam.adoptaunestudiante.Views.Fragments.InformationAppImagesFragment;
 
-/**
- * Created by Montserrat on 22/09/2017.
- */
-
 public class FragmentPagerAdapterInformation extends FragmentPagerAdapter {
 
     public FragmentPagerAdapterInformation(FragmentManager fg){
@@ -23,11 +19,11 @@ public class FragmentPagerAdapterInformation extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return InformationAppImagesFragment.getInstance(R.drawable.grupo_de_estudio);
+                return InformationAppImagesFragment.getInstance(R.drawable.grupo_de_estudio, R.string.grupo_de_estudio);
             case 1:
-                return InformationAppImagesFragment.getInstance(R.drawable.apuntes);
+                return InformationAppImagesFragment.getInstance(R.drawable.apuntes, R.string.apuntes);
             case 2:
-                return InformationAppImagesFragment.getInstance(R.drawable.preguntas_en_grupo);
+                return InformationAppImagesFragment.getInstance(R.drawable.preguntas_en_grupo, R.string.preguntas_en_grupo);
         }
         return null;
     }

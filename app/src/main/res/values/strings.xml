@@ -6,4 +6,7 @@
     <string name="password">Contraseña</string>
     <string name="password_seis_caracteres">Contraseña (Al menos 6 caracteres)</string>
     <string name="confirm_password">Confirmar contraseña</string>
+    <string name="grupo_de_estudio">gurpo de estudio</string>
+    <string name="apuntes">apuntes</string>
+    <string name="preguntas_en_grupo">preguntas en grupo</string>
 </resources>
