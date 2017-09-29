@@ -15,7 +15,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,16 +28,14 @@ public class InformationAppInteractorImpl implements InformationAppInteractor {
 
     private InformationAppPresenter presenter;
     private CallbackManager callbackManager;
-    private Activity activity;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
     private FirebaseAuth.AuthStateListener listener;
 
-    public InformationAppInteractorImpl(final InformationAppPresenter presenter, Activity activity){
+    public InformationAppInteractorImpl(final InformationAppPresenter presenter){
         this.presenter = presenter;
-        this.activity = activity;
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         listener = new FirebaseAuth.AuthStateListener() {
@@ -71,7 +68,7 @@ public class InformationAppInteractorImpl implements InformationAppInteractor {
     public void logInFirebase(AccessToken accessToken) {
         AuthCredential credential = FacebookAuthProvider.getCredential(accessToken.getToken());
         firebaseAuth.signInWithCredential(credential)
-                .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
+                .addOnCompleteListener(presenter.getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful())

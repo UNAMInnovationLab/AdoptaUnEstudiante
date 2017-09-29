@@ -1,11 +1,13 @@
 package com.lab.innovation.unam.adoptaunestudiante.Interactors;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.LogInInteractor;
@@ -32,16 +34,17 @@ public class LogInInteractorImpl implements LogInInteractor {
                 else
                     if (!Util.isNetworkConnectionAvailable())
                         presenter.catchDatabaseError(CONNECTION_ERROR);
-                    else
-                        try {
-                            throw task.getException();
-                        }catch (FirebaseAuthInvalidUserException e){
+                    else {
+                        String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                        if (errorCode.equals("ERROR_USER_NOT_FOUND"))
                             presenter.catchDatabaseError(EMAIL_NOT_REGISTER);
-                        } catch (FirebaseAuthInvalidCredentialsException e) {
+                        else if (errorCode.equals("ERROR_INVALID_EMAIL"))
+                            presenter.catchDatabaseError(INVALID_EMAIL);
+                        else if (errorCode.equals("ERROR_WRONG_PASSWORD"))
                             presenter.catchDatabaseError(INCORRECT_PASSWORD);
-                        } catch (Exception e){
+                        else
                             presenter.catchDatabaseError(SOME_ERROR);
-                        }
+                    }
             }
         });
     }

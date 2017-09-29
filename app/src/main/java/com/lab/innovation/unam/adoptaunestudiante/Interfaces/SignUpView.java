@@ -2,9 +2,10 @@ package com.lab.innovation.unam.adoptaunestudiante.Interfaces;
 
 public interface SignUpView {
 
-    int EMAIL=0;
-    int PASSWORD=1;
-    int CONFIRM_PASSWORD=2;
+    int NAME=0;
+    int EMAIL=1;
+    int PASSWORD=2;
+    int CONFIRM_PASSWORD=3;
 
     void showError(String msj);
     void showInputError(int editText, String msj);
@@ -12,5 +13,6 @@ public interface SignUpView {
     void showProgressBar();
     void hideProgressBar();
     void navigateToMainActivity();
+    void navigateToLogInActivity();
 
 }

@@ -11,5 +11,5 @@ public interface LogInView {
     void showInformation(String msj);
     void showInputError(int editText, String msj);
     void navigateToMainActivity();
-
+    void navigateToSignUpActivity();
 }

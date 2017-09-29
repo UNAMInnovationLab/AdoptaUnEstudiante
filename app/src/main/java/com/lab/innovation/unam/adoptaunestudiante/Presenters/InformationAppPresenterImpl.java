@@ -2,9 +2,7 @@ package com.lab.innovation.unam.adoptaunestudiante.Presenters;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 
-import com.facebook.CallbackManager;
 import com.facebook.login.widget.LoginButton;
 import com.lab.innovation.unam.adoptaunestudiante.Interactors.InformationAppInteractorImpl;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.InformationAppInteractor;
@@ -12,7 +10,6 @@ import com.lab.innovation.unam.adoptaunestudiante.Interfaces.InformationAppPrese
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.InformationAppView;
 import com.lab.innovation.unam.adoptaunestudiante.Model.User;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class InformationAppPresenterImpl implements InformationAppPresenter {
@@ -20,9 +17,9 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
     private InformationAppView view;
     private InformationAppInteractor interactor;
 
-    public InformationAppPresenterImpl(InformationAppView view, Activity activity){
+    public InformationAppPresenterImpl(InformationAppView view){
         this.view = view;
-        this.interactor = new InformationAppInteractorImpl(this, activity);
+        this.interactor = new InformationAppInteractorImpl(this);
     }
 
     @Override
@@ -31,6 +28,10 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
         loginButton.registerCallback(interactor.createCallbackManager(), interactor.createFbCallback());
     }
 
+    @Override
+    public Activity getActivity() {
+        return view.getActivity();
+    }
 
     @Override
     public void onActivityResultCallback(int requestCode, int resultCode, Intent data) {
@@ -39,7 +40,6 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
 
     @Override
     public void onSuccessLoginFacebook() {
-
         view.navigateToMainActivity();
     }
 
@@ -62,6 +62,7 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
     public void stopListenerAuth() {
         interactor.stopListenerAuth();
     }
+
 
     @Override
     public User createUser(String name, String email) {

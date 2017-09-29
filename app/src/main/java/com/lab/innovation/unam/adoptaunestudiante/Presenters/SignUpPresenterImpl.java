@@ -10,6 +10,7 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     private SignUpView view;
     private SignUpInteractor interactor;
+    private String name;
 
     public SignUpPresenterImpl(SignUpView view){
         this.view = view;
@@ -17,10 +18,11 @@ public class SignUpPresenterImpl implements SignUpPresenter {
     }
 
     @Override
-    public void verifyValidity(String email, String password, String confirmPassword) {
-        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            int error = email.isEmpty()?
-                    view.EMAIL:
+    public void verifyValidity(String name, String email, String password, String confirmPassword) {
+        this.name = name;
+        if (name.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            int error =
+                    name.isEmpty()? view.NAME: email.isEmpty()? view.EMAIL:
                     password.isEmpty()? view.PASSWORD: view.CONFIRM_PASSWORD;
             view.showInputError(error, "Favor de introducir todos los campos");
         } else if (password.contains(" "))
@@ -37,7 +39,7 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void signUpSuccefully(String email) {
-        User user = new User("", email);
+        User user = new User(this.name, email);
         interactor.signUpToDatabaseUser(user);
         view.hideProgressBar();
         view.showInformation("Cuenta creada exitosamente");

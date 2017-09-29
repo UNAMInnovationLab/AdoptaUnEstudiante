@@ -6,8 +6,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.FirebaseDatabase;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.SignUpInteractor;
 import com.lab.innovation.unam.adoptaunestudiante.Interfaces.SignUpPresenter;
@@ -41,19 +40,18 @@ public class SignUpInteractorImpl implements SignUpInteractor {
                 }else
                     if (!Util.isNetworkConnectionAvailable())
                         presenter.catchDatabaseError(CONNECTION_ERROR);
-                    else
-                        try {
-                            throw task.getException();
-                        } catch (FirebaseAuthInvalidCredentialsException e) {
-                            // Correo inválido
+                    else {
+                        String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                        if (errorCode.equals("ERROR_INVALID_EMAIL"))
+                            // Correo mal escrito
                             presenter.catchDatabaseError(INVALID_EMAIL_ERROR);
-                        } catch (FirebaseAuthUserCollisionException e) {
+                        else if(errorCode.equals("ERROR_EMAIL_ALREADY_IN_USE"))
                             // Correo ya ingresado
                             presenter.catchDatabaseError(EMAIL_COLLISION_ERROR);
-                        } catch (Exception e) {
+                        else
                             // Cualquier otro error
                             presenter.catchDatabaseError(SOME_ERROR);
-                        }
+                    }
 
             }
         });

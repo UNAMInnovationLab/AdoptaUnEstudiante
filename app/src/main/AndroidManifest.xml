@@ -25,9 +25,10 @@
             android:name=".Views.Activities.InformationAppActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Views.Activities.MainActivity" />
-        <activity android:name=".Views.Activities.SignUpActivity" />
-        <activity android:name=".Views.Activities.LogInActivity" >
-        </activity>
+        <activity android:name=".Views.Activities.SignUpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Views.Activities.LogInActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         //******************************************************************************************
         <meta-data android:name="com.facebook.sdk.ApplicationId"

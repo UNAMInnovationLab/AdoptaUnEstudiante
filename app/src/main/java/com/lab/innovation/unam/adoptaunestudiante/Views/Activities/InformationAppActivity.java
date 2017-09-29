@@ -1,5 +1,6 @@
 package com.lab.innovation.unam.adoptaunestudiante.Views.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.Snackbar;
@@ -32,7 +33,7 @@ public class InformationAppActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_app);
 
-        presenter = new InformationAppPresenterImpl(this, this);
+        presenter = new InformationAppPresenterImpl(this);
 
         layout = findViewById(R.id.information_app_layout);
         findViewById(R.id.information_app_btn_login).setOnClickListener(this);
@@ -49,6 +50,11 @@ public class InformationAppActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         presenter.onActivityResultCallback(requestCode, resultCode, data);
+    }
+
+    @Override
+    public Activity getActivity() {
+        return this;
     }
 
     @Override

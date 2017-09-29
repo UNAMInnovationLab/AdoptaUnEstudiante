@@ -43,6 +43,8 @@ public class LogInPresenterImpl implements LogInPresenter {
             view.showInputError(view.PASSWORD_ERROR, "Contraseña incorrecta");
         else if (error == interactor.EMAIL_NOT_REGISTER)
             view.showInputError(view.EMAIL_ERROR, "Éste correo electrónico no ha sido registrado");
+        else if (error == interactor.INVALID_EMAIL)
+            view.showInputError(view.EMAIL_ERROR, "Correo Electrónico Inválido");
         else
             view.showError("Ocurrió un error al intentar iniciar sesión");
     }

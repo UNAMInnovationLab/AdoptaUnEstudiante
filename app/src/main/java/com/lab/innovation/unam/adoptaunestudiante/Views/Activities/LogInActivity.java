@@ -14,7 +14,7 @@ import com.lab.innovation.unam.adoptaunestudiante.Interfaces.LogInView;
 import com.lab.innovation.unam.adoptaunestudiante.Presenters.LogInPresenterImpl;
 import com.lab.innovation.unam.adoptaunestudiante.R;
 
-public class LogInActivity extends AppCompatActivity implements LogInView {
+public class LogInActivity extends AppCompatActivity implements LogInView, View.OnClickListener {
 
     private LogInPresenter presenter;
     private ProgressBar progressBar;
@@ -32,12 +32,9 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
         etEmail = (EditText) findViewById(R.id.log_in_et_email);
         etPassword = (EditText) findViewById(R.id.log_in_et_password);
 
-        findViewById(R.id.log_in_btn_enter).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.verifyValidity(etEmail.getText().toString(), etPassword.getText().toString());
-            }
-        });
+        findViewById(R.id.log_in_btn_enter).setOnClickListener(this);
+        findViewById(R.id.log_in_tv_olvide_password).setOnClickListener(this);
+        findViewById(R.id.log_in_aun_sin_cuenta).setOnClickListener(this);
     }
 
     @Override
@@ -78,5 +75,26 @@ public class LogInActivity extends AppCompatActivity implements LogInView {
     public void navigateToMainActivity() {
         startActivity(new Intent(this, MainActivity.class));
         finish();
+    }
+
+    @Override
+    public void navigateToSignUpActivity() {
+        startActivity(new Intent(this, SignUpActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.log_in_btn_enter:
+                presenter.verifyValidity(etEmail.getText().toString(), etPassword.getText().toString());
+                break;
+            case R.id.log_in_aun_sin_cuenta:
+                navigateToSignUpActivity();
+                break;
+            case R.id.log_in_tv_olvide_password:
+                showInformation("Opción no disponible aún");
+                break;
+
+        }
     }
 }
