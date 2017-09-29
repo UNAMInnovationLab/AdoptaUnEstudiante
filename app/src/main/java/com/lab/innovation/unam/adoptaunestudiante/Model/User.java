@@ -6,12 +6,14 @@ public class User implements Serializable {
 
     private String name;
     private String email;
+    private String imageURL;
 
     public User() {}
 
-    public User(String name, String email) {
+    public User(String name, String email, String imageURL) {
         this.name = name;
         this.email = email;
+        this.imageURL = imageURL;
     }
 
     public String getName() {
@@ -28,5 +30,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }

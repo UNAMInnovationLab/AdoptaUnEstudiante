@@ -87,7 +87,11 @@ public class InformationAppInteractorImpl implements InformationAppInteractor {
                     databaseReference.child("users")
                             .child(firebaseUser.getUid())
                             .setValue(
-                                    presenter.createUser(firebaseUser.getDisplayName(), firebaseUser.getEmail())
+                                    presenter.createUser(
+                                            firebaseUser.getDisplayName(),
+                                            firebaseUser.getEmail(),
+                                            (firebaseUser.getPhotoUrl() == null)?
+                                                    "default": firebaseUser.getPhotoUrl().toString())
                             );
                 }
                 presenter.onSuccessLoginFacebook();

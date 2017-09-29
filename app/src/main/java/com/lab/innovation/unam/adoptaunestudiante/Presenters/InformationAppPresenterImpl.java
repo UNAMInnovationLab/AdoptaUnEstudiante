@@ -2,6 +2,7 @@ package com.lab.innovation.unam.adoptaunestudiante.Presenters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 
 import com.facebook.login.widget.LoginButton;
 import com.lab.innovation.unam.adoptaunestudiante.Interactors.InformationAppInteractorImpl;
@@ -65,8 +66,8 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
 
 
     @Override
-    public User createUser(String name, String email) {
-        return new User(name, email);
+    public User createUser(String name, String email, String imageURL) {
+        return new User(name, email, imageURL);
     }
 
 }
