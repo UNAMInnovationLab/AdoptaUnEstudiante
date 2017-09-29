@@ -3,6 +3,7 @@ package com.lab.innovation.unam.adoptaunestudiante.Interfaces;
 import android.content.Intent;
 
 import com.facebook.login.widget.LoginButton;
+import com.lab.innovation.unam.adoptaunestudiante.Model.User;
 
 public interface InformationAppPresenter {
 
@@ -10,6 +11,9 @@ public interface InformationAppPresenter {
     void onSuccessLoginFacebook();
     void onCancellLoginFacebook();
     void onErrorLoginFacebook();
+    void startListenerAuth();
+    void stopListenerAuth();
+    User createUser(String name, String email);
     void onActivityResultCallback(int requestCode, int resultCode, Intent data);
 
 }

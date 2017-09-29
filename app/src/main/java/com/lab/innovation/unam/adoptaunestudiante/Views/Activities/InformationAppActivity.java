@@ -32,7 +32,7 @@ public class InformationAppActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information_app);
 
-        presenter = new InformationAppPresenterImpl(this);
+        presenter = new InformationAppPresenterImpl(this, this);
 
         layout = findViewById(R.id.information_app_layout);
         findViewById(R.id.information_app_btn_login).setOnClickListener(this);
@@ -91,4 +91,15 @@ public class InformationAppActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        presenter.startListenerAuth();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        presenter.stopListenerAuth();
+    }
 }
