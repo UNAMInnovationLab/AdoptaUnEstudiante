@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Adopta un Estudiante</string>
+
+    <string name="facebook_app_id">284381725395905</string>
+    <string name="fb_login_protocol_scheme">fb284381725395905</string>
+
     <string name="iniciar_sesion">Iniciar Sesión</string>
     <string name="crear_cuenta">Crear Cuenta</string>
     <string name="email">Correo Electrónico</string>
