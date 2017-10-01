@@ -1,7 +1,7 @@
 package com.lab.innovation.unam.adoptaunestudiante.Interfaces;
 
-public interface MainPresenter {
+public interface StarsPresenter {
 
-    void initializeViews();
+    void workStars();
 
 }

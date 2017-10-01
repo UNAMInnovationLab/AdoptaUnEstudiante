@@ -66,8 +66,8 @@ public class InformationAppPresenterImpl implements InformationAppPresenter {
 
 
     @Override
-    public User createUser(String name, String email, String imageURL) {
-        return new User(name, email, imageURL);
+    public User createUser(String name, String email, String imageURL, float ranking) {
+        return new User(name, email, imageURL, ranking);
     }
 
 }

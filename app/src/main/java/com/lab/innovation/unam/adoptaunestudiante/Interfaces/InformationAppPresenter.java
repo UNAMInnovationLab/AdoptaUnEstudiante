@@ -16,7 +16,7 @@ public interface InformationAppPresenter {
     void startListenerAuth();
     void stopListenerAuth();
     Activity getActivity();
-    User createUser(String name, String email, String imageURL);
+    User createUser(String name, String email, String imageURL, float ranking);
     void onActivityResultCallback(int requestCode, int resultCode, Intent data);
 
 }

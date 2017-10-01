@@ -91,7 +91,8 @@ public class InformationAppInteractorImpl implements InformationAppInteractor {
                                             firebaseUser.getDisplayName(),
                                             firebaseUser.getEmail(),
                                             (firebaseUser.getPhotoUrl() == null)?
-                                                    "default": firebaseUser.getPhotoUrl().toString())
+                                                    "default": firebaseUser.getPhotoUrl().toString(),
+                                            3.0f)
                             );
                 }
                 presenter.onSuccessLoginFacebook();

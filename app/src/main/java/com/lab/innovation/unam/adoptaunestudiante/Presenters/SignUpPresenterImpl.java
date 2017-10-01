@@ -39,7 +39,7 @@ public class SignUpPresenterImpl implements SignUpPresenter {
 
     @Override
     public void signUpSuccefully(String email) {
-        User user = new User(this.name, email, "default");
+        User user = new User(this.name, email, "default", 3.0f);
         interactor.signUpToDatabaseUser(user);
         view.hideProgressBar();
         view.showInformation("Cuenta creada exitosamente");

@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:context="com.lab.innovation.unam.adoptaunestudiante.Views.Fragments.StarsFragment">
+
+    <TextView
+        android:id="@+id/fragment_stars_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
+
+    <ImageView
+        android:id="@+id/fragment_stars_one"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/star_empty" />
+
+    <ImageView
+        android:id="@+id/fragment_stars_two"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/star_empty" />
+
+    <ImageView
+        android:id="@+id/fragment_stars_three"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/star_empty" />
+
+    <ImageView
+        android:id="@+id/fragment_stars_four"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/star_empty" />
+
+    <ImageView
+        android:id="@+id/fragment_stars_five"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/star_empty" />
+
+</LinearLayout>

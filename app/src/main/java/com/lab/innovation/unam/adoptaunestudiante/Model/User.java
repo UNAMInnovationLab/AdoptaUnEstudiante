@@ -7,13 +7,15 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String imageURL;
+    private float ranking;
 
     public User() {}
 
-    public User(String name, String email, String imageURL) {
+    public User(String name, String email, String imageURL, float ranking) {
         this.name = name;
         this.email = email;
         this.imageURL = imageURL;
+        this.ranking = ranking;
     }
 
     public String getName() {
@@ -39,4 +41,13 @@ public class User implements Serializable {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
+
+    public float getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(float ranking) {
+        this.ranking = ranking;
+    }
+
 }
