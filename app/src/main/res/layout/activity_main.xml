@@ -78,7 +78,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="65dp"
+        android:layout_width="50dp"
         android:layout_height="0dp"
         android:background="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,65 +88,72 @@
         android:id="@+id/linearLayout">
 
         <ImageView
+            android:id="@+id/main_user_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/user"/>
 
         <ImageView
+            android:id="@+id/main_map_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
+            android:padding="2dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/map" />
 
         <ImageView
+            android:id="@+id/main_publications_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/publicaciones" />
 
         <ImageView
+            android:id="@+id/main_msj_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
+            android:padding="3dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/mensajes" />
 
         <ImageView
+            android:id="@+id/main_forum_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/foros" />
 
         <ImageView
+            android:id="@+id/main_settings_option"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".166"
             android:background="#ffffff"
-            android:padding="5dp"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp"
             android:src="@drawable/settings" />
-
     </LinearLayout>
 
     <LinearLayout

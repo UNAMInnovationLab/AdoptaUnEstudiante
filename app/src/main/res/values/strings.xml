@@ -21,4 +21,19 @@
     <string name="nombre">Nombre Completo</string>
     <string name="ya_tienes_una_cuenta">¿Ya tienes una cuenta? Inicia sesión haciendo Click Aquí</string>
 
+    <string name="informacion">Información</string>
+    <string name="informacion_general">Información General</string>
+    <string name="donde_estudias">¿En dónde estudias?</string>
+    <string name="agrega_lugar_de_estudio">Añade el lugar donde estudias</string>
+    <string name="que_estudias">¿Qué estudias?</string>
+    <string name="agrega_carrera_de_estudio">Añade la carrera que estudias</string>
+    <string name="que_edad_tienes">¿Qué edad tienes?</string>
+    <string name="agrega_tu_edad">Añade tu edad</string>
+    <string name="que_sexo_eres">Sexo</string>
+    <string name="informacion_basica">Información Básica</string>
+    <string name="especifica_sexo">Hombre / Mujer</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="fecha_nacimiento_standard">dd / mm / aaaa</string>
+    <string name="informacion_academica">Información académica</string>
+
 </resources>
