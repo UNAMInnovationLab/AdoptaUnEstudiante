@@ -35,5 +35,7 @@
     <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
     <string name="fecha_nacimiento_standard">dd / mm / aaaa</string>
     <string name="informacion_academica">Información académica</string>
+    <string name="que_semestre_cursas">¿Qué semestre cursas?</string>
+    <string name="agrega_semestre_que_cursas">Añade el semestre que estas cursando</string>
 
 </resources>
